@@ -2,6 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RS2-225", "RS2-225\RS2-225.csproj", "{787E938E-8B32-4EEC-B148-323BF7D8603B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RS2-225-Test", "RS2-225-Test\RS2-225-Test.csproj", "{605A842A-FCA6-493D-8AFB-99B525403ACB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{787E938E-8B32-4EEC-B148-323BF7D8603B} = {787E938E-8B32-4EEC-B148-323BF7D8603B}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +17,9 @@ Global
 		{787E938E-8B32-4EEC-B148-323BF7D8603B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{787E938E-8B32-4EEC-B148-323BF7D8603B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{787E938E-8B32-4EEC-B148-323BF7D8603B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{605A842A-FCA6-493D-8AFB-99B525403ACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{605A842A-FCA6-493D-8AFB-99B525403ACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{605A842A-FCA6-493D-8AFB-99B525403ACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{605A842A-FCA6-493D-8AFB-99B525403ACB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
