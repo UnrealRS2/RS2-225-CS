@@ -2,7 +2,7 @@
 
 namespace RS2_225.jagex2.config;
 
-public class FloType : ConfigType
+public class FloType
 {
     private static int count;
     private static FloType?[]? instances;
@@ -166,7 +166,7 @@ public class FloType : ConfigType
 				break;
 		}
 
-		hsl = this.hsl24to16(hue, saturation, lightness);
+		hsl = hsl24to16(hue, saturation, lightness);
 	}
 	
 	private int hsl24to16(int hue, int saturation, int lightness) {

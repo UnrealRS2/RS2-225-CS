@@ -30,7 +30,7 @@ public class signlink
         while (threadId == threadliveid)
         {
             if (loadreq != null) {
-                Console.WriteLine("Load cache: " + loadreq);
+                Console.WriteLine("Load jagfile: " + loadreq);
                 loadbuf = null;
                 try {
                     var file = File.Open(cacheDir + loadreq, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);

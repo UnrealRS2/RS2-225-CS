@@ -20,7 +20,6 @@ public class client
 
     private static Jagfile? loadArchive(string name/*, int crc*/, string displayName, int displayProgress)
     {
-        Console.WriteLine("loadArchive: " + name);
         var retry = 5; 
         var data = signlink.cacheload(name);
         if (data != null)
@@ -45,12 +44,20 @@ public class client
     {
         var startup = DateTime.Now;
         
-        Console.WriteLine("RS2 cache loader - release #" + signlink.clientversion);
+        Console.WriteLine("RS2 Cache - release #" + signlink.clientversion);
         signlink.startpriv(IPAddress.Loopback);
         try
         {
-            var config = loadArchive("config", "config", 15);
+            var config = loadArchive("config", "config", 15)!;
+            var  inter = loadArchive("interface", "interface", 20)!;
+            var media = loadArchive("media",  "2d graphics", 30)!;
+            var models = loadArchive("models", "3d graphics", 40)!;
+            var textures = loadArchive("textures", "textures", 60)!;
+            var wordenc = loadArchive("wordenc", "chat system", 65)!;
+            var sounds = loadArchive("sounds", "sound effects", 70)!;
+            
             FloType.unpack(config);
+            ObjType.unpack(config);
         }
         catch (Exception e)
         {

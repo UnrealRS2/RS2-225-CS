@@ -24,7 +24,7 @@ public class Isaac
             isaac();
             count = 255;
         }
-        return (int) rsl[this.count];
+        return (int) rsl[count];
     }
 
     private void init()
