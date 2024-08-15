@@ -12,8 +12,6 @@ public class ObjType
     private static Packet dat;
     private static ObjType[] cache;
     private static int cachePos;
-    //TODO: This currently controls obj name "Members Object" override
-    private static bool membersWorld = true;
     private int index = -1;
     private int model;
     private string? name;
@@ -95,7 +93,7 @@ public class ObjType
 		    obj.toCertificate();
 	    }
 
-	    if (!membersWorld && obj.members) {
+	    if (!client.members && obj.members) {
 		    obj.name = "Members Object";
 		    obj.desc = "Login to a members' server to use this object.";
 		    obj.op = null;

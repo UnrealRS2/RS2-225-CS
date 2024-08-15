@@ -49,7 +49,7 @@ public class client
         try
         {
             var config = loadArchive("config", "config", 15)!;
-            var  inter = loadArchive("interface", "interface", 20)!;
+            var inter = loadArchive("interface", "interface", 20)!;
             var media = loadArchive("media",  "2d graphics", 30)!;
             var models = loadArchive("models", "3d graphics", 40)!;
             var textures = loadArchive("textures", "textures", 60)!;
@@ -66,23 +66,5 @@ public class client
         var finish = DateTime.Now;
         var time = finish - startup;
         Console.WriteLine("Loaded cache data in " + time.Milliseconds + "ms");
-        if (args.Length > 0) {
-            nodeId = int.Parse(args[0]);
-        }
-        
-        if (args.Length > 1) {
-            portOffset = int.Parse(args[1]);
-        }
-        
-        //TODO: finish
-        /*if (args.Length > 2 && args[2].Equals("lowmem")) {
-            setLowMemory();
-        } else {
-            setHighMemory();
-        }*/
-        
-        members = args.Length <= 3 || !args[3].Equals("free");
-        
-
     }
 }
