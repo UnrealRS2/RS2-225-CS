@@ -15,16 +15,10 @@ public class CRC32
         {
             var crc = i;
             for (uint j = 8; j > 0; j--)
-            {
                 if ((crc & 1) == 1)
-                {
                     crc = (crc >> 1) ^ Packet.CRC32_POLYNOMIAL;
-                }
                 else
-                {
                     crc >>= 1;
-                }
-            }
             Crc32Table[i] = crc;
         }
     }

@@ -2,8 +2,8 @@
 
 public class LinkList
 {
-    private Linkable sentinel;
-    private Linkable? cursor = null;
+    private Linkable? cursor;
+    private readonly Linkable sentinel;
 
     public LinkList()
     {
@@ -15,32 +15,20 @@ public class LinkList
 
     public void addTail(Linkable node)
     {
-        if (node.prev != null)
-        {
-            node.unlink();
-        }
+        if (node.prev != null) node.unlink();
         node.prev = sentinel.prev;
         node.next = sentinel;
-        if (node.prev != null)
-        {
-            node.prev.next = node;
-        }
+        if (node.prev != null) node.prev.next = node;
         node.next.prev = node;
     }
 
     public void addHead(Linkable node)
     {
-        if (node.prev != null)
-        {
-            node.unlink();
-        }
+        if (node.prev != null) node.unlink();
         node.prev = sentinel;
         node.next = sentinel.next;
         node.prev.next = node;
-        if (node.next != null)
-        {
-            node.next.prev = node;
-        }
+        if (node.next != null) node.next.prev = node;
     }
 
     public Linkable? removeHead()
@@ -60,6 +48,7 @@ public class LinkList
             cursor = null;
             return null;
         }
+
         cursor = node?.next;
         return node;
     }
@@ -72,6 +61,7 @@ public class LinkList
             cursor = null;
             return null;
         }
+
         cursor = node?.prev;
         return node;
     }
@@ -84,10 +74,11 @@ public class LinkList
             cursor = null;
             return null;
         }
+
         cursor = node?.next;
         return node;
     }
-    
+
     public Linkable? prev()
     {
         var node = cursor;
@@ -96,6 +87,7 @@ public class LinkList
             cursor = null;
             return null;
         }
+
         cursor = node?.prev;
         return node;
     }

@@ -4,20 +4,17 @@ namespace RS2_225.jagex2.datastruct;
 
 public class HashTable
 {
-    private int bucketCount;
-    private Linkable[] buckets;
+    private readonly int bucketCount;
+    private readonly Linkable[] buckets;
 
     public HashTable(int size)
     {
-        buckets = [];
+        buckets = new Linkable[size];
         bucketCount = size;
-        for (var i = 0; i < size; i++)
-        {
-            buckets[i] = new Linkable();
-        }
+        for (var i = 0; i < size; i++) buckets[i] = new Linkable();
     }
 
-    Linkable? get(BigInteger key)
+    public Linkable? get(BigInteger key)
     {
         var start = buckets[(int)(key & new BigInteger(bucketCount - 1))];
         var next = start.next;
@@ -27,19 +24,17 @@ public class HashTable
         {
             if (node == null)
                 continue;
-            if (node.key == key)
-            {
-                return node;
-            }
+            if (node.key == key) return node;
         }
+
         return null;
     }
 
-    void put(BigInteger key, Linkable value)
+    public void put(BigInteger key, Linkable value)
     {
         if (value.prev != null)
             value.unlink();
-        
+
         var sentinel = buckets[(int)(key & new BigInteger(bucketCount - 1))];
         value.prev = sentinel.prev;
         value.next = sentinel;

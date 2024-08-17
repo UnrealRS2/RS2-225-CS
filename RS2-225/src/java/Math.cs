@@ -2,8 +2,8 @@
 
 public class Math
 {
-    public static Random _random = new Random();
-    
+    public static Random _random = new();
+
     public static double random()
     {
         return _random.NextDouble();

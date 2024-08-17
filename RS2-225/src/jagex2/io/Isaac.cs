@@ -2,29 +2,28 @@
 
 public class Isaac
 {
-    private int count = 0;
-    private uint[] rsl = new uint[256];
-    private uint[] mem = new uint[256];
-    private uint a = 0;
-    private uint b = 0;
-    private uint c = 0;
+    private uint a;
+    private uint b;
+    private uint c;
+    private int count;
+    private readonly uint[] mem = new uint[256];
+    private readonly uint[] rsl = new uint[256];
 
     public Isaac(uint[] seed)
     {
-        for (var i = 0; i < seed.Length; i++)
-        {
-            rsl[i] = seed[i];
-        }
+        for (var i = 0; i < seed.Length; i++) rsl[i] = seed[i];
         init();
     }
 
     public int nextInt()
     {
-        if (count-- == 0) {
+        if (count-- == 0)
+        {
             isaac();
             count = 255;
         }
-        return (int) rsl[count];
+
+        return (int)rsl[count];
     }
 
     private void init()
@@ -157,7 +156,7 @@ public class Isaac
             mem[i + 6] = g;
             mem[i + 7] = h;
         }
-        
+
         isaac();
         count = 256;
     }
@@ -171,21 +170,19 @@ public class Isaac
             var x = this.mem[i];
 
             var mem = i & 3;
-            if (mem == 0) {
+            if (mem == 0)
                 a ^= a << 13;
-            } else if (mem == 1) {
+            else if (mem == 1)
                 a ^= a >>> 6;
-            } else if (mem == 2) {
+            else if (mem == 2)
                 a ^= a << 2;
-            } else if (mem == 3) {
-                a ^= a >>> 16;
-            }
+            else if (mem == 3) a ^= a >>> 16;
 
             a += this.mem[(i + 128) & 0xff];
 
             uint y;
             this.mem[i] = y = this.mem[(x >>> 2) & 0xff] + a + b;
-            rsl[i] = b = this.mem[((y >>> 8) >>> 2) & 0xff] + x;
+            rsl[i] = b = this.mem[(y >>> 8 >>> 2) & 0xff] + x;
         }
     }
 }
