@@ -31,7 +31,7 @@ Unpacked 7783 AnimFrames
 
 ---Unpacking Configs---
 Decoded 1027 SeqType configs
-Unpacked 3387 LocType configs
+Decoded 3387 LocType configs
 Decoded 78 FloType configs
 Decoded 2886 ObjType configs
 Decoded 1017 NpcType configs
